@@ -55,7 +55,7 @@
     {% endif %}
 
     <div class="row">
-        <div class="col-md-9 mt-3">
+        <div class="col-md-12 mt-3">
             <div class="row portfolio-item">
                 {% for product in object.get_products %}
                 {% include 'web/includes/product.html' %}
@@ -65,11 +65,11 @@
             </div>
         </div>
 
-        <div class="col-md-3 pt-3">
+        {% comment %} <div class="col-md-3 pt-3">
             <div id="cartMenu">
                 {% include 'web/includes/cart.html' %}
             </div>
-        </div>
+        </div> {% endcomment %}
     </div>
 
     <div class="offer-slider">

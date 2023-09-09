@@ -2,7 +2,7 @@
 <div class="item col-md-3 pb-3 {{product.subcategory.pk}}">
     <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
         <div class="list-card-image">
-            <div class="star position-absolute">
+            {% comment %} <div class="star position-absolute">
                 {% if product.display_foodtype %}
                 {% if product.is_vegetarian %}
                 <span class="badge text-bg-success">Veg</span>
@@ -10,7 +10,7 @@
                 <span class="badge text-bg-danger">Non-veg</span>
                 {% endif %}
                 {% endif %}
-            </div>
+            </div> {% endcomment %}
 
             <a data-bs-toggle="modal" data-bs-target="#{{product.pk}}" href="javascript:void(0);">
                 <img alt="#" src="{{product.image.url}}" class="img-fluid item-img w-100" style="height:300px">
@@ -43,21 +43,13 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-sm-6">
-                        <div class="star position-absolute">
-                            {% if product.display_foodtype %}
-                            {% if product.is_vegetarian %}
-                            <span class="badge text-bg-success">Veg</span>
-                            {% else %}
-                            <span class="badge text-bg-danger">Non-veg</span>
-                            {% endif %}
-                            {% endif %}
-                        </div>
+                    <div class="col-sm-6 mx-auto">
+                       
                         <a href="{{product.get_web_url}}" class="d-inline-block">
                             <img alt="#" src="{{product.image.url}}" class="img-fluid item-img w-100 brdr shadow">
                         </a>
                     </div>
-                    <div class="col-md-6">
+                    {% comment %} <div class="col-md-6">
                         <div class="position-relative">
                             <div class="list-card-body pt-2">
                                 <h6 class="mb-1">
@@ -103,7 +95,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                     <div class="col-12 mt-3">
                         <div class="position-relative">
                             <div class="list-card-body">

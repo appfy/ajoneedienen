@@ -224,9 +224,10 @@ a {
 }
 
 .restaurant-pic {
-  height: 148px;
+  height: 125px;
   border-radius: 4px;
-  margin: 9px 0
+  margin: 9px 0;
+  max-width: 100%;
 }
 
 .modal-content {

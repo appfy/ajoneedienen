@@ -20,7 +20,7 @@ def main_context(request):
         if request.user.is_superuser:
             usertype = "Administator"
         else:
-            usertype = "Restaurant"
+            usertype = "Textiles"
     else:
         usertype = "Guest"
     return {
