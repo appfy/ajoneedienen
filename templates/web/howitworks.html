@@ -1,0 +1,31 @@
+{% extends 'web/base.html' %}
+
+{% block header %}
+{% include 'web/includes/header.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="osahan-checkout">
+    <div class="d-none">
+        <div class="bg-primary border-bottom p-3 d-flex align-items-center">
+            <a class="toggle togglew toggle-2" href="#"><span></span></a>
+            <h4 class="fw-bold m-0 text-white">How It Works</h4>
+        </div>
+    </div>
+
+    <div class="container position-relative">
+        <div class="py-5 row g-4">
+            <div class="col-md-8 mx-auto">
+                <div class='embed-container'>
+                    <iframe src='https://www.youtube.com/embed/H3R1y1ADCZw' frameborder='0'
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'web/includes/mobile.html' %}
+
+
+{% endblock %}

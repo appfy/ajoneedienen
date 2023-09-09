@@ -1,0 +1,554 @@
+{% extends 'web/base.html' %}
+{% block content %}
+<div class="d-none">
+    <div class="bg-primary p-3 d-flex align-items-center">
+        <a class="toggle togglew toggle-2" href="#"><span></span></a>
+        <h4 class="fw-bold m-0 text-white">Offer</h4>
+    </div>
+</div>
+<div class="offer-section">
+    <div class="container">
+        <div class="py-5 d-flex align-items-center">
+            <div>
+                <h2 class="text-white">Offers for you</h2>
+                <p class="h6 text-white">Explore top deals and offers exclusively for you!</p>
+            </div>
+            <div class="ms-auto"><img alt="#" src="/static/web/img/offers.png" class="img-fluid offers_img"></div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-white shadow-sm">
+    <div class="container">
+        <div class="bg-white">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="px-0 py-3 nav-link text-dark h6 border-0 mb-0 active" id="profile-tab"
+                        data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                        aria-selected="false">Payment offers/Coupons</a>
+                </li>
+                <li class="nav-item bottom-tab" role="presentation">
+                    <a class="px-0 py-3 nav-link text-dark h6 border-0 mb-0 ms-3" id="home-tab" data-bs-toggle="tab"
+                        href="#home" role="tab" aria-controls="home" aria-selected="true">Restaurant offers</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade py-4" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <h5 class="mb-1">All offers (163)</h5>
+            <p>All offers and deals, from restaurants near you</p>
+            <div class="row">
+                <div class="col-md-3 pb-3">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                        <div class="list-card-image">
+                            <div class="star position-absolute"><span class="badge text-bg-success"><i
+                                        class="feather-star"></i> 3.1 (300+)</span></div>
+                            <div class="favourite-heart text-danger position-absolute rounded-circle"><a href="#"><i
+                                        class="feather-heart"></i></a></div>
+                            <div class="member-plan position-absolute"><span class="badge text-bg-dark">Promoted</span>
+                            </div>
+                            <a href="restaurant.html">
+                                <img alt="#" src="/static/web/img/popular1.png" class="img-fluid item-img w-100">
+                            </a>
+                        </div>
+                        <div class="p-3 position-relative">
+                            <div class="list-card-body">
+                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">The osahan Restaurant
+                                    </a>
+                                </h6>
+                                <p class="text-gray mb-1 small">• North • Hamburgers</p>
+                                <p class="text-gray mb-1 rating">
+                                <ul class="rating-stars list-unstyled">
+                                    <li>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star"></i>
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div class="list-card-badge">
+                                <span class="badge text-bg-danger">OFFER</span> <small>65% OSAHAN50</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 pb-3">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                        <div class="list-card-image">
+                            <div class="star position-absolute"><span class="badge text-bg-success"><i
+                                        class="feather-star"></i> 3.1 (300+)</span></div>
+                            <div class="favourite-heart text-danger position-absolute rounded-circle"><a href="#"><i
+                                        class="feather-heart"></i></a></div>
+                            <div class="member-plan position-absolute"><span class="badge text-bg-dark">Promoted</span>
+                            </div>
+                            <a href="restaurant.html">
+                                <img alt="#" src="/static/web/img/popular2.png" class="img-fluid item-img w-100">
+                            </a>
+                        </div>
+                        <div class="p-3 position-relative">
+                            <div class="list-card-body">
+                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">Thai Famous Indian
+                                        Cuisine</a></h6>
+                                <p class="text-gray mb-1 small">• Indian • Pure veg</p>
+                                <p class="text-gray mb-1 rating">
+                                <ul class="rating-stars list-unstyled">
+                                    <li>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star"></i>
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div class="list-card-badge">
+                                <span class="badge text-bg-success">OFFER</span> <small>65% off</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 pb-3">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                        <div class="list-card-image">
+                            <div class="star position-absolute"><span class="badge text-bg-success"><i
+                                        class="feather-star"></i> 3.1 (300+)</span></div>
+                            <div class="favourite-heart text-danger position-absolute rounded-circle"><a href="#"><i
+                                        class="feather-heart"></i></a></div>
+                            <div class="member-plan position-absolute"><span class="badge text-bg-dark">Promoted</span>
+                            </div>
+                            <a href="restaurant.html">
+                                <img alt="#" src="/static/web/img/popular3.png" class="img-fluid item-img w-100">
+                            </a>
+                        </div>
+                        <div class="p-3 position-relative">
+                            <div class="list-card-body">
+                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">The osahan Restaurant
+                                    </a>
+                                </h6>
+                                <p class="text-gray mb-1 small">• Hamburgers • Pure veg</p>
+                                <p class="text-gray mb-1 rating">
+                                <ul class="rating-stars list-unstyled">
+                                    <li>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star"></i>
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div class="list-card-badge">
+                                <span class="badge text-bg-danger">OFFER</span> <small>65% OSAHAN50</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 pb-3">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                        <div class="list-card-image">
+                            <div class="star position-absolute"><span class="badge text-bg-success"><i
+                                        class="feather-star"></i> 3.1 (300+)</span></div>
+                            <div class="favourite-heart text-danger position-absolute rounded-circle"><a href="#"><i
+                                        class="feather-heart"></i></a></div>
+                            <div class="member-plan position-absolute"><span class="badge text-bg-dark">Promoted</span>
+                            </div>
+                            <a href="restaurant.html">
+                                <img alt="#" src="/static/web/img/popular4.png" class="img-fluid item-img w-100">
+                            </a>
+                        </div>
+                        <div class="p-3 position-relative">
+                            <div class="list-card-body">
+                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">Bite Me Now
+                                        Sandwiches</a></h6>
+                                <p class="text-gray mb-1 small">American • Pure veg</p>
+                                <p class="text-gray mb-1 rating">
+                                <ul class="rating-stars list-unstyled">
+                                    <li>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star"></i>
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div class="list-card-badge">
+                                <span class="badge text-bg-success">OFFER</span> <small>65% off</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 pb-3">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                        <div class="list-card-image">
+                            <div class="star position-absolute"><span class="badge text-bg-success"><i
+                                        class="feather-star"></i> 3.1 (300+)</span></div>
+                            <div class="favourite-heart text-danger position-absolute rounded-circle"><a href="#"><i
+                                        class="feather-heart"></i></a></div>
+                            <div class="member-plan position-absolute"><span class="badge text-bg-dark">Promoted</span>
+                            </div>
+                            <a href="restaurant.html">
+                                <img alt="#" src="/static/web/img/popular5.png" class="img-fluid item-img w-100">
+                            </a>
+                        </div>
+                        <div class="p-3 position-relative">
+                            <div class="list-card-body">
+                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">The osahan Restaurant
+                                    </a>
+                                </h6>
+                                <p class="text-gray mb-1 small">• North • Hamburgers</p>
+                                <p class="text-gray mb-1 rating">
+                                <ul class="rating-stars list-unstyled">
+                                    <li>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star"></i>
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div class="list-card-badge">
+                                <span class="badge text-bg-danger">OFFER</span> <small>65% OSAHAN50</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 pb-3">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                        <div class="list-card-image">
+                            <div class="star position-absolute"><span class="badge text-bg-success"><i
+                                        class="feather-star"></i> 3.1 (300+)</span></div>
+                            <div class="favourite-heart text-danger position-absolute rounded-circle"><a href="#"><i
+                                        class="feather-heart"></i></a></div>
+                            <div class="member-plan position-absolute"><span class="badge text-bg-dark">Promoted</span>
+                            </div>
+                            <a href="restaurant.html">
+                                <img alt="#" src="/static/web/img/popular6.png" class="img-fluid item-img w-100">
+                            </a>
+                        </div>
+                        <div class="p-3 position-relative">
+                            <div class="list-card-body">
+                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">Thai Famous Indian
+                                        Cuisine</a></h6>
+                                <p class="text-gray mb-1 small">• Indian • Pure veg</p>
+                                <p class="text-gray mb-1 rating">
+                                <ul class="rating-stars list-unstyled">
+                                    <li>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star"></i>
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div class="list-card-badge">
+                                <span class="badge text-bg-success">OFFER</span> <small>65% off</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 pb-3">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                        <div class="list-card-image">
+                            <div class="star position-absolute"><span class="badge text-bg-success"><i
+                                        class="feather-star"></i> 3.1 (300+)</span></div>
+                            <div class="favourite-heart text-danger position-absolute rounded-circle"><a href="#"><i
+                                        class="feather-heart"></i></a></div>
+                            <div class="member-plan position-absolute"><span class="badge text-bg-dark">Promoted</span>
+                            </div>
+                            <a href="restaurant.html">
+                                <img alt="#" src="/static/web/img/popular7.png" class="img-fluid item-img w-100">
+                            </a>
+                        </div>
+                        <div class="p-3 position-relative">
+                            <div class="list-card-body">
+                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">The osahan Restaurant
+                                    </a>
+                                </h6>
+                                <p class="text-gray mb-1 small">• Hamburgers • Pure veg</p>
+                                <p class="text-gray mb-1 rating">
+                                <ul class="rating-stars list-unstyled">
+                                    <li>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star"></i>
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div class="list-card-badge">
+                                <span class="badge text-bg-danger">OFFER</span> <small>65% OSAHAN50</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 pb-3">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                        <div class="list-card-image">
+                            <div class="star position-absolute"><span class="badge text-bg-success"><i
+                                        class="feather-star"></i> 3.1 (300+)</span></div>
+                            <div class="favourite-heart text-danger position-absolute rounded-circle"><a href="#"><i
+                                        class="feather-heart"></i></a></div>
+                            <div class="member-plan position-absolute"><span class="badge text-bg-dark">Promoted</span>
+                            </div>
+                            <a href="restaurant.html">
+                                <img alt="#" src="/static/web/img/popular8.png" class="img-fluid item-img w-100">
+                            </a>
+                        </div>
+                        <div class="p-3 position-relative">
+                            <div class="list-card-body">
+                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">Bite Me Now
+                                        Sandwiches</a></h6>
+                                <p class="text-gray mb-1 small">American • Pure veg</p>
+                                <p class="text-gray mb-1 rating">
+                                <ul class="rating-stars list-unstyled">
+                                    <li>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star"></i>
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div class="list-card-badge">
+                                <span class="badge text-bg-success">OFFER</span> <small>65% off</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 pb-3">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                        <div class="list-card-image">
+                            <div class="star position-absolute"><span class="badge text-bg-success"><i
+                                        class="feather-star"></i> 3.1 (300+)</span></div>
+                            <div class="favourite-heart text-danger position-absolute rounded-circle"><a href="#"><i
+                                        class="feather-heart"></i></a></div>
+                            <div class="member-plan position-absolute"><span class="badge text-bg-dark">Promoted</span>
+                            </div>
+                            <a href="restaurant.html">
+                                <img alt="#" src="/static/web/img/popular5.png" class="img-fluid item-img w-100">
+                            </a>
+                        </div>
+                        <div class="p-3 position-relative">
+                            <div class="list-card-body">
+                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">The osahan Restaurant
+                                    </a>
+                                </h6>
+                                <p class="text-gray mb-1 small">• North • Hamburgers</p>
+                                <p class="text-gray mb-1 rating">
+                                <ul class="rating-stars list-unstyled">
+                                    <li>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star"></i>
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div class="list-card-badge">
+                                <span class="badge text-bg-danger">OFFER</span> <small>65% OSAHAN50</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 pb-3">
+                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                        <div class="list-card-image">
+                            <div class="star position-absolute"><span class="badge text-bg-success"><i
+                                        class="feather-star"></i> 3.1 (300+)</span></div>
+                            <div class="favourite-heart text-danger position-absolute rounded-circle"><a href="#"><i
+                                        class="feather-heart"></i></a></div>
+                            <div class="member-plan position-absolute"><span class="badge text-bg-dark">Promoted</span>
+                            </div>
+                            <a href="restaurant.html">
+                                <img alt="#" src="/static/web/img/popular2.png" class="img-fluid item-img w-100">
+                            </a>
+                        </div>
+                        <div class="p-3 position-relative">
+                            <div class="list-card-body">
+                                <h6 class="mb-1"><a href="restaurant.html" class="text-black">Thai Famous Indian
+                                        Cuisine</a></h6>
+                                <p class="text-gray mb-1 small">• Indian • Pure veg</p>
+                                <p class="text-gray mb-1 rating">
+                                <ul class="rating-stars list-unstyled">
+                                    <li>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star star_active"></i>
+                                        <i class="feather-star"></i>
+                                    </li>
+                                </ul>
+                                </p>
+                            </div>
+                            <div class="list-card-badge">
+                                <span class="badge text-bg-success">OFFER</span> <small>65% off</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade show active py-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <h5 class="mb-3 mt-0">Available Coupons</h5>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="bg-white shadow-sm rounded p-4">
+                        <p class="h6 mb-3"><span class="feather-home text-primary"></span><span
+                                class="ms-3">SBI75</span></p>
+                        <p class="fw-bold mb-2">Get 15% discount using SBI Credit Cards</p>
+                        <p class="mb-4">Use code SBI75 and get 15% discount up to Rs.75 on orders above Rs.400</p>
+                        <p><a href="#" class="text-primary">+ MORE</a></p>
+                        <a href="#" class="btn btn-outline-primary">COPY CODE</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="bg-white shadow-sm rounded p-4">
+                        <p class="h6 mb-3"><span class="feather-home text-primary"></span><span
+                                class="ms-3">PAYZAPP100</span></p>
+                        <p class="fw-bold mb-2">Get 15% discount using HDFC PayZapp Card</p>
+                        <p class="mb-4">Use code PAYZAPP100 & get 15% discount up to Rs.100 on orders above Rs.250
+                        </p>
+                        <p><a href="#" class="text-primary">+ MORE</a></p>
+                        <a href="#" class="btn btn-outline-primary">COPY CODE</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="bg-white shadow-sm rounded p-4">
+                        <p class="h6 mb-3"><span class="feather-home text-primary"></span><span class="ms-3">LP75</span>
+                        </p>
+                        <p class="fw-bold mb-2">Get flat cashback of Rs.75 using LazyPay</p>
+                        <p class="mb-4">Use code LP75 & get flat cashback of Rs.75 on orders above Rs.250 on first
+                            LazyPay</p>
+                        <p><a href="#" class="text-primary">+ MORE</a></p>
+                        <a href="#" class="btn btn-outline-primary">COPY CODE</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="bg-white shadow-sm rounded p-4">
+                        <p class="h6 mb-3"><span class="feather-home text-primary"></span><span
+                                class="ms-3">RUPAYFEST</span></p>
+                        <p class="fw-bold mb-2">Get 30% discount using RuPay Cards</p>
+                        <p class="mb-4">Use code RUPAYFEST and get 30% discount up to Rs.100 on orders above Rs.199
+                        </p>
+                        <p><a href="#" class="text-primary">+ MORE</a></p>
+                        <a href="#" class="btn btn-outline-primary">COPY CODE</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="bg-white shadow-sm rounded p-4">
+                        <p class="h6 mb-3"><span class="feather-home text-primary"></span><span
+                                class="ms-3">FCH50</span></p>
+                        <p class="fw-bold mb-2">Get 20% cashback using Freecharge</p>
+                        <p class="mb-4">Use code FCH50 and get 20% cashback up to Rs.50 on transaction using
+                            Freecharge.</p>
+                        <p><a href="#" class="text-primary">+ MORE</a></p>
+                        <a href="#" class="btn btn-outline-primary">COPY CODE</a>
+                    </div>
+                </div>
+            </div>
+            <h5 class="mb-3 mt-2">Bank Offers</h5>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card bg-white rounded shadow-sm border-0 p-4">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/static/web/img/axis.png" class="img-fluid" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <p class="card-text fw-bold mb-1">Get 4% cashback with Flipkart Axis Bank Credit
+                                        Card</p>
+                                    <p class="card-text text-muted">Get 4% cashback on orders using Flipkart Axis
+                                        Bank Credit Cards</p>
+                                    <a href="#" class="text-primary">+ MORE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card bg-white rounded shadow-sm border-0 p-4">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="/static/web/img/axis.png" class="img-fluid" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <p class="card-text fw-bold mb-1">Get 4% cashback using Axis Bank Ace Credit
+                                        Cards</p>
+                                    <p class="card-text text-muted">Get 4% cashback on orders using Axis Bank Ace
+                                        Credit Cards</p>
+                                    <a href="#" class="text-primary">+ MORE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
+    <div class="row">
+        <div class="col">
+            <a href="home.html" class="text-dark small fw-bold text-decoration-none">
+                <p class="h4 m-0"><i class="feather-home text-dark"></i></p>
+                Home
+            </a>
+        </div>
+        <div class="col selected">
+            <a href="trending.html" class="text-danger small fw-bold text-decoration-none">
+                <p class="h4 m-0"><i class="feather-map-pin"></i></p>
+                Trending
+            </a>
+        </div>
+        <div class="col bg-white rounded-circle mt-n4 px-3 py-2">
+            <div class="bg-danger rounded-circle mt-n0 shadow">
+                <a href="checkout.html" class="text-white small fw-bold text-decoration-none">
+                    <i class="feather-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col">
+            <a href="favorites.html" class="text-dark small fw-bold text-decoration-none">
+                <p class="h4 m-0"><i class="feather-heart"></i></p>
+                Favorites
+            </a>
+        </div>
+        <div class="col">
+            <a href="profile.html" class="text-dark small fw-bold text-decoration-none">
+                <p class="h4 m-0"><i class="feather-user"></i></p>
+                Profile
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% load tags %}
+<div class="item col-md-3 pb-3 {{product.subcategory.pk}}">
+    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+        <div class="list-card-image">
+            <div class="star position-absolute">
+                {% if product.display_foodtype %}
+                {% if product.is_vegetarian %}
+                <span class="badge text-bg-success">Veg</span>
+                {% else %}
+                <span class="badge text-bg-danger">Non-veg</span>
+                {% endif %}
+                {% endif %}
+            </div>
+
+            <a data-bs-toggle="modal" data-bs-target="#{{product.pk}}" href="javascript:void(0);">
+                <img alt="#" src="{{product.image.url}}" class="img-fluid item-img w-100" style="height:300px">
+            </a>
+        </div>
+        <div class="p-3 position-relative">
+            <div class="list-card-body">
+                <h6 class="mb-1">
+                    <a href="{{product.get_web_url}}" class="text-black">{{product.name}}</a>
+                </h6>
+                <span class="">&#8377; {{product.price}}</span>
+                <p class="text-gray mb-3">{{product.description|truncatechars:"165"}}</p>
+                {% comment %} <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{product.pk}}">
+                    Add to List
+                </button> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="{{product.pk}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="{{product.pk}}Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="{{product.pk}}Label">{{product.name}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="star position-absolute">
+                            {% if product.display_foodtype %}
+                            {% if product.is_vegetarian %}
+                            <span class="badge text-bg-success">Veg</span>
+                            {% else %}
+                            <span class="badge text-bg-danger">Non-veg</span>
+                            {% endif %}
+                            {% endif %}
+                        </div>
+                        <a href="{{product.get_web_url}}" class="d-inline-block">
+                            <img alt="#" src="{{product.image.url}}" class="img-fluid item-img w-100 brdr shadow">
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="position-relative">
+                            <div class="list-card-body pt-2">
+                                <h6 class="mb-1">
+                                    <a href="{{product.get_web_url}}" data-option-pk="{{ option.pk }}" class="text-black">{{product.name}}</a>
+                                </h6>
+
+                                <div class="row mt-2">
+                                    <div class="col-md-12 px-0">
+                                        {% for option in product.get_options %}
+                                        <div class="d-flex gap-2 p-3 border-bottom gold-members flex-wrap">
+                                            {% if option.product.display_foodtype %}
+                                            {% if option.product.is_vegetarian %}
+                                            <div class="fw-bold text-success non_veg">.</div>
+                                            {% else %}
+                                            <div class="fw-bold text-danger non_veg">.</div>
+                                            {% endif %}
+                                            {% endif %}
+
+                                            <div>
+                                                <h6 class="mb-1">{{ option.name }}</h6>
+                                                <p class="text-muted mb-0">&#8377;{{ option.price }}</p>
+                                            </div>
+
+                                            <span class="ms-auto">
+                                                <span class="count-number float-end">
+                                                    <button type="button" class="btn-sm left btn_decrease btn btn-outline-secondary" data-option="{{ option.pk }}">
+                                                        <i class="feather-minus"></i>
+                                                    </button>
+
+                                                    <input class="count-number-input" type="text" value="{% get_qty request.session.session_key option restaurant %}">
+                                                    
+                                                    <button type="button" class="btn-sm right btn_increase btn btn-outline-secondary" data-option="{{ option.pk }}">
+                                                        <i class="feather-plus"></i>
+                                                    </button>
+                                                </span>
+
+                                            </span>
+                                            
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="position-relative">
+                            <div class="list-card-body">
+                                <h6 class="mb-1">Description: </h6>
+                                <p class="text-gray mb-3">{{product.description|linebreaksbr}}</p>
+                            </div>
+                            <div class="list-card-body">
+                                <h6 class="mb-1">Ingredients: </h6>
+                                <p class="text-gray mb-3">{{product.ingredients|linebreaksbr}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% if product_ads %}
+                    <div class="col-12 mx-auto">
+                        {% for product_ad in product_ads %}
+                        <div class="cat-item">
+                            <a class="d-block text-center shadow-sm" href="javascript:void(0);">
+                                <img alt="#" src="{{product_ad.image.url}}" class="img-fluid rounded w-100">
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
