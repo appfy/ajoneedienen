@@ -102,10 +102,30 @@
                                 <h6 class="mb-1">Description: </h6>
                                 <p class="text-gray mb-3">{{product.description|linebreaksbr}}</p>
                             </div>
+                            {% if product.get_options %}
                             <div class="list-card-body">
-                                <h6 class="mb-1">Ingredients: </h6>
-                                <p class="text-gray mb-3">{{product.ingredients|linebreaksbr}}</p>
+                                <h6 class="mb-1">Options: </h6>
+                                 
+                                <table class="table table-secondary">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Option Name</th>
+                                            <th scope="col">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for option in product.get_options %}
+                                        <tr>
+                                            <th scope="row">{{ forloop.counter }}</th>
+                                            <td>{{ option.name }}</td>
+                                            <td>&#8377;{{ option.price }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                     {% if product_ads %}

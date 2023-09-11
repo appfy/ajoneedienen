@@ -9,7 +9,7 @@ def main_context(request):
 
     domain = request.META.get("HTTP_HOST", "")
     site_name = "aahaaglobal"
-    logo_url = "/static/main/images/logo.svg"
+    logo_url = "/static/main/images/logo.png"
     favicon_url = "/static/main/images/logo_mini.svg"
 
     if not Site.objects.filter(pk=settings.SITE_ID).exists():

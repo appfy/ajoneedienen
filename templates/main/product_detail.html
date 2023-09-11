@@ -27,31 +27,32 @@
                                 </div>
 
                                
-                                {% for option in product.get_options %}
+                               
                                 <div class="row border-bottom align-items-center">
-                                    <div class="col-md-9">
-                                        <div class="d-flex gap-2 p-3 gold-members flex-wrap">
-                                            {% if option.product.display_foodtype %}
-                                            {% if option.product.is_vegetarian %}
-                                            <span class="fw-bold bg-success non_veg"
-                                                style="width:20px;height:20px;display: block;"></span>
-                                            {% else %}
-                                            <span class="fw-bold bg-danger non_veg"
-                                                style="width:20px;height:20px;display: block;"></span>
-                                            {% endif %}
-                                            {% endif %}
-
-                                            <h6 class="mb-1">{{ option.name }}</h6>
-                                            <p class="text-muted mb-0">&#8377;{{ option.price }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 text-end">
-                                        <a href="{{option.get_delete_url}}" class="btn bg-light btn-sm"><i class="mdi mdi-delete text-danger"></i></a>
-                                    </div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">delete</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for option in product.get_options %}
+                                            <tr>
+                                                <th scope="row">{{ forloop.counter }}</th>
+                                                <td>{{ option.name }}</td>
+                                                <td>&#8377;{{ option.price }}</td>
+                                                <td> <a href="{{option.get_delete_url}}" class="btn bg-light btn-sm"><i class="mdi mdi-delete text-danger"></i></a></td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
 
                                 </div>
-                                {% endfor %}
-
+                                
                             </div>
                         </div>
                     </div>
@@ -61,10 +62,7 @@
                                 <h6 class="mb-1">Description: </h6>
                                 <p class="text-gray mb-3">{{product.description|linebreaksbr}}</p>
                             </div>
-                            <div class="list-card-body">
-                                <h6 class="mb-1">Ingredients: </h6>
-                                <p class="text-gray mb-3">{{product.ingredients|linebreaksbr}}</p>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>

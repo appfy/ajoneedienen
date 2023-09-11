@@ -6,14 +6,15 @@
                 Home
             </a>
         </div>
-       
+        
+        {% comment %}        
         <div class="col bg-white rounded-circle mt-n4 px-3 py-2">
             <div class="bg-danger rounded-circle mt-n0 shadow">
                 <a href="{% url 'web:checkout' restaurant.pk %}" class="text-white small fw-bold text-decoration-none">
                     <i class="feather-shopping-cart"></i>
                 </a>
             </div>
-        </div>
+        </div> {% endcomment %}
        
         <div class="col">
             <a href="{% url 'main:howitworks' restaurant.pk %}" class="text-dark small fw-bold text-decoration-none">

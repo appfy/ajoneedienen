@@ -69,7 +69,7 @@ class SubcategoryAdmin(ImportExportActionModelAdmin):
 
 @admin.register(Option)
 class OptionAdmin(ImportExportActionModelAdmin):
-    list_display = ("size", "product")
+    list_display = ("name", "product")
     list_filter = ("product",)
     autocomplete_fields = ("product",)
     search_fields = ("name",)

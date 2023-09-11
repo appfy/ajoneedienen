@@ -141,20 +141,19 @@ class Product(BaseModel):
     subcategory = models.ForeignKey(Subcategory, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
-    ingredients = models.TextField(blank=True)
+    # ingredients = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to='product_images/')
     is_popular = models.BooleanField(default=True)
     is_vegetarian = models.BooleanField(default=True)
-    display_foodtype = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        if not Option.objects.filter(product=self).exists():
-            Option(price=self.price, product=self, name="Full").save()
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
+    #     if not Option.objects.filter(product=self).exists():
+    #         Option(price=self.price, product=self, name="Full").save()
 
     class Meta:
         ordering = ("name",)
@@ -175,7 +174,7 @@ class Product(BaseModel):
 
 class Option(BaseModel):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    size = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
@@ -190,7 +189,7 @@ class Option(BaseModel):
 
 
 class Banner(models.Model):
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE , verbose_name="Textiles")
     image = models.ImageField(upload_to='banners/')
 
     def __str__(self):
