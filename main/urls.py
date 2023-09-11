@@ -11,15 +11,15 @@ urlpatterns = [
     path("home/", views.IndexView.as_view(), name="index"),
     path("dash/admin/", views.AdminIndexView.as_view(), name="admin_index"),
     # profile - restaurant
-    path("dash/restaurant/", views.RestaurantIndexView.as_view(), name="restaurant_index"),
-    path("blocked/restaurant/", views.RestaurantBlockedView.as_view(), name="restaurant_blocked"),
-    path("update/restaurants/", views.AutoRestaurantUpdateView.as_view(), name="auto_restaurant"),
-    path("profile/restaurants/", views.RestaurantProfileView.as_view(), name="restaurant_update"),
-    # restaurants - crud
-    path("restaurants/", views.RestaurantListView.as_view(), name="restaurant_list"),
-    path("restaurants/new/", views.RestaurantCreateView.as_view(), name="restaurant_new"),
-    path("restaurants/<str:pk>/", views.RestaurantDetailView.as_view(), name="restaurant_detail"),
-    path("restaurants/<str:pk>/edit/", views.RestaurantUpdateView.as_view(), name="restaurant_edit"),
+    path("dash/textiles/", views.RestaurantIndexView.as_view(), name="restaurant_index"),
+    path("blocked/textiles/", views.RestaurantBlockedView.as_view(), name="restaurant_blocked"),
+    path("update/textiles/", views.AutoRestaurantUpdateView.as_view(), name="auto_restaurant"),
+    path("profile/textiles/", views.RestaurantProfileView.as_view(), name="restaurant_update"),
+    # textiles - crud
+    path("textiles/", views.RestaurantListView.as_view(), name="restaurant_list"),
+    path("textiles/new/", views.RestaurantCreateView.as_view(), name="restaurant_new"),
+    path("textiles/<str:pk>/", views.RestaurantDetailView.as_view(), name="restaurant_detail"),
+    path("textiles/<str:pk>/edit/", views.RestaurantUpdateView.as_view(), name="restaurant_edit"),
     # notifications - crud
     path("notifications/", views.NotificationListView.as_view(), name="notification_list"),
     path("notifications/new/", views.NotificationCreateView.as_view(), name="notification_new"),

@@ -3413,8 +3413,8 @@
         "model": "sites.site",
         "pk": 1,
         "fields": {
-            "domain": "ajoneedienen.com",
-            "name": "ajoneedienen.com"
+            "domain": "aahaaglobal.com",
+            "name": "aahaaglobal.com"
         }
     },
     {

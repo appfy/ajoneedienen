@@ -52,7 +52,7 @@ class Restaurant(BaseModel):
 
     class Meta:
         ordering = ("name",)
-        verbose_name_plural = "Restaurants"
+        verbose_name_plural = "textiles"
 
     def get_absolute_url(self):
         return reverse("main:restaurant_detail", kwargs={"pk": self.pk})
@@ -175,7 +175,7 @@ class Product(BaseModel):
 
 class Option(BaseModel):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    size = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
@@ -252,3 +252,5 @@ class Notification(models.Model):
 
     def __str__(self):
         return str(self.notification)
+
+

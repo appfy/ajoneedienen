@@ -5,7 +5,7 @@ from import_export.admin import ImportExportActionModelAdmin
 from registration.models import RegistrationProfile
 
 from .models import Banner
-from .models import CartItem
+# from .models import CartItem
 from .models import CatalogueAd
 from .models import Category
 from .models import CheckoutAd
@@ -69,7 +69,7 @@ class SubcategoryAdmin(ImportExportActionModelAdmin):
 
 @admin.register(Option)
 class OptionAdmin(ImportExportActionModelAdmin):
-    list_display = ("name", "product")
+    list_display = ("size", "product")
     list_filter = ("product",)
     autocomplete_fields = ("product",)
     search_fields = ("name",)
@@ -97,10 +97,10 @@ class BannerAdmin(ImportExportActionModelAdmin):
     pass
 
 
-@admin.register(CartItem)
-class CartItemAdmin(ImportExportActionModelAdmin):
-    list_display = ("__str__", "restaurant", "quantity", "total_price")
-    list_filter = ("restaurant",)
+# @admin.register(CartItem)
+# class CartItemAdmin(ImportExportActionModelAdmin):
+#     list_display = ("__str__", "restaurant", "quantity", "total_price")
+#     list_filter = ("restaurant",)
 
 
 @admin.register(CatalogueAd)

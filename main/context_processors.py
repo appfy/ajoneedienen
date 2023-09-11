@@ -8,7 +8,7 @@ def main_context(request):
         request.session.create()
 
     domain = request.META.get("HTTP_HOST", "")
-    site_name = "Ajoneedienen"
+    site_name = "aahaaglobal"
     logo_url = "/static/main/images/logo.svg"
     favicon_url = "/static/main/images/logo_mini.svg"
 
@@ -29,5 +29,5 @@ def main_context(request):
         "logo_url": logo_url,
         "favicon_url": favicon_url,
         "usertype": usertype,
-        "domain": "http://ajoneedienen.com",
+        "domain": "http://aahaaglobal.com",
     }

@@ -19,6 +19,6 @@ urlpatterns = (
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 )
 
-admin.site.site_header = "Ajoneedienen Administration"
-admin.site.site_title = "Ajoneedienen Admin Portal"
-admin.site.index_title = "Welcome to Ajoneedienen Admin Portal"
+admin.site.site_header = "aahaaglobal Administration"
+admin.site.site_title = "aahaaglobal Admin Portal"
+admin.site.index_title = "Welcome to aahaaglobal Admin Portal"
