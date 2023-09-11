@@ -47,7 +47,7 @@ class Restaurant(BaseModel):
     youtube_url = models.URLField(max_length=200, blank=True, null=True)
     twitter_url = models.URLField(max_length=200, blank=True, null=True)
 
-    feature_image = models.ImageField(upload_to="restaurant/feature_images/")
+    feature_image = models.ImageField(upload_to="restaurant/feature_images/",null=True, blank=True)
     feature_description = models.TextField(blank=True, null=True)
 
     class Meta:
@@ -84,7 +84,7 @@ class DefaultCategory(BaseModel):
 
 
 class Category(BaseModel):
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE , verbose_name="Textiles")
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='category_images/')
     description = models.TextField(blank=True)
@@ -142,18 +142,15 @@ class Product(BaseModel):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     # ingredients = models.TextField(blank=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    # price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to='product_images/')
     is_popular = models.BooleanField(default=True)
-    is_vegetarian = models.BooleanField(default=True)
+    # is_vegetarian = models.BooleanField(default=True,null=True)
 
     def __str__(self):
         return self.name
 
-    # def save(self, *args, **kwargs):
-    #     super().save(*args, **kwargs)
-    #     if not Option.objects.filter(product=self).exists():
-    #         Option(price=self.price, product=self, name="Full").save()
+
 
     class Meta:
         ordering = ("name",)
@@ -205,13 +202,6 @@ class CatalogueAd(models.Model):
         return f"Advertisement: {self.image.url}"
 
 
-class CheckoutAd(models.Model):
-    image = models.ImageField(upload_to='checkout/ads/')
-    display_upto = models.DateField()
-    display_in = models.ManyToManyField(Restaurant, blank=True)
-
-    def __str__(self):
-        return f"Advertisement: {self.image.url}"
 
 
 class ProductAd(models.Model):
@@ -237,7 +227,7 @@ class CartItem(models.Model):
 
 
 class Notification(models.Model):
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE , verbose_name="Textiles")
     notification = models.TextField()
 
     def get_absolute_url(self):

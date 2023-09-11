@@ -8,7 +8,6 @@ from .models import Banner
 # from .models import CartItem
 from .models import CatalogueAd
 from .models import Category
-from .models import CheckoutAd
 from .models import DefaultCategory
 from .models import District
 from .models import Notification
@@ -105,16 +104,6 @@ class BannerAdmin(ImportExportActionModelAdmin):
 
 @admin.register(CatalogueAd)
 class CatalogueAdAdmin(ImportExportActionModelAdmin):
-    list_display = ("__str__", "display_upto")
-    formfield_overrides = {models.ManyToManyField: {'widget': CheckboxSelectMultiple}}
-
-    class Media:
-        js = ('custom_admin/script.js',)
-        css = {'all': ('custom_admin/style.css',)}
-
-
-@admin.register(CheckoutAd)
-class CheckoutAdAdmin(ImportExportActionModelAdmin):
     list_display = ("__str__", "display_upto")
     formfield_overrides = {models.ManyToManyField: {'widget': CheckboxSelectMultiple}}
 

@@ -7112,7 +7112,9 @@ fieldset:disabled .btn {
 }
 
 .dropdown-menu.show {
-  display: block;
+
+  display: block ;
+  
 }
 
 .dropdown-header {

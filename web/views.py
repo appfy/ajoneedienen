@@ -7,7 +7,6 @@ from main.models import Banner
 from main.models import CartItem
 from main.models import CatalogueAd
 from main.models import Category
-from main.models import CheckoutAd
 from main.models import Notification
 from main.models import Restaurant
 from main.models import ProductAd
@@ -72,9 +71,7 @@ class CheckoutView(DetailView):
         context["restaurant"] = restaurant
         context["cart_items"] = cart_items
         context["total_price"] = sum([cart_item.total_price() for cart_item in cart_items])
-        context["checkout_ads"] = CheckoutAd.objects.filter(
-            display_upto__gte=timezone.now(), display_in__in=[restaurant]
-        )
+
         context["product_ads"] = ProductAd.objects.filter(
             display_upto__gte=timezone.now(), display_in__in=[restaurant]
         )

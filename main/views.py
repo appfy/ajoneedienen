@@ -374,7 +374,7 @@ class ProductDetailView(RestaurantRequiredMixin, generic.DetailView):
 class ProductCreateView(RestaurantRequiredMixin, generic.CreateView):
     model = Product
     template_name = "main/product_create.html"
-    fields = ("subcategory", "name", "description", "price", "image" , "is_popular")
+    fields = ("subcategory", "name", "description", "image" , "is_popular")
     success_url = reverse_lazy("main:index")
 
     def get_form(self, form_class=None):
@@ -386,7 +386,7 @@ class ProductCreateView(RestaurantRequiredMixin, generic.CreateView):
 class ProductUpdateView(RestaurantRequiredMixin, UpdateView):
     model = Product
     template_name = "main/product_update.html"
-    fields = ("subcategory", "name", "description", "price", "image", "is_popular")
+    fields = ("subcategory", "name", "description", "image", "is_popular")
 
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
