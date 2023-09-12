@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 
 from .models import Restaurant
-
+from .models import Product, Category, Subcategory
 
 class RestaurantCreateForm(forms.ModelForm):
     username = forms.CharField(max_length=200, label="Username")
@@ -53,3 +53,16 @@ class RestaurantEditForm(forms.ModelForm):
             "youtube_url",
             "twitter_url",
         )
+
+
+
+
+class ProductAdminForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if 'catogary' in self.fields:
+            self.fields['catogary'].queryset = Category.objects.all()
