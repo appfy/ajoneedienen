@@ -24,7 +24,7 @@ from .models import DefaultCategory
 from .models import Notification
 from .models import Option
 from .models import Product
-from .models import Restaurant
+from .models import Textiles
 from .models import Subcategory
 
 
@@ -70,7 +70,7 @@ class AdminIndexView(LoginRequiredMixin, SuperuserRequiredMixin, generic.ListVie
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Home"
-        context["restaurant_count"] = Restaurant.objects.all().count()
+        context["restaurant_count"] = Textiles.objects.all().count()
         context["product_count"] = Product.objects.all().count()
         context["category_count"] = Category.objects.all().count()
         context["subcategory_count"] = Subcategory.objects.all().count()
@@ -82,21 +82,21 @@ class RestaurantBlockedView(LoginRequiredMixin, generic.TemplateView):
 
 
 class AutoRestaurantUpdateView(LoginRequiredMixin, generic.FormView):
-    model = Restaurant
+    model = Textiles
     template_name = "main/restaurant_update.html"
     success_url = reverse_lazy("main:index")
 
     def dispatch(self, request, *args, **kwargs):
-        if Restaurant.objects.filter(user=self.request.user).exists():
+        if Textiles.objects.filter(user=self.request.user).exists():
             return redirect("main:admin_index")
         return super().dispatch(request, *args, **kwargs)
 
     def get_form(self, form_class=None):
-        if Restaurant.objects.filter(user=self.request.user).exists():
+        if Textiles.objects.filter(user=self.request.user).exists():
             return RestaurantEditForm(
                 self.request.POST or None,
                 self.request.FILES or None,
-                instance=Restaurant.objects.get(user=self.request.user),
+                instance=Textiles.objects.get(user=self.request.user),
             )
         else:
             return RestaurantEditForm(self.request.POST or None, self.request.FILES or None)
@@ -115,16 +115,16 @@ class AutoRestaurantUpdateView(LoginRequiredMixin, generic.FormView):
 
 
 class RestaurantProfileView(RestaurantRequiredMixin, generic.FormView):
-    model = Restaurant
+    model = Textiles
     template_name = "main/restaurant_profile.html"
     success_url = reverse_lazy("main:index")
 
     def get_form(self, form_class=None):
-        if Restaurant.objects.filter(user=self.request.user).exists():
+        if Textiles.objects.filter(user=self.request.user).exists():
             return RestaurantEditForm(
                 self.request.POST or None,
                 self.request.FILES or None,
-                instance=Restaurant.objects.get(user=self.request.user),
+                instance=Textiles.objects.get(user=self.request.user),
             )
         else:
             return RestaurantEditForm(self.request.POST or None, self.request.FILES or None)
@@ -146,12 +146,12 @@ class RestaurantIndexView(RestaurantRequiredMixin, generic.ListView):
     template_name = "main/restaurant_index.html"
 
     def get_queryset(self):
-        return Product.objects.filter(subcategory__category__restaurant=Restaurant.objects.get(user=self.request.user))
+        return Product.objects.filter(subcategory__category__restaurant=Textiles.objects.get(user=self.request.user))
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Home"
-        restaurant = Restaurant.objects.get(user=self.request.user)
+        restaurant = Textiles.objects.get(user=self.request.user)
         category_count = Category.objects.filter(restaurant=restaurant).count()
         subcategory_count = Subcategory.objects.filter(category__restaurant=restaurant).count()
         product_count = Product.objects.filter(subcategory__category__restaurant=restaurant).count()
@@ -168,7 +168,7 @@ class RestaurantListView(LoginRequiredMixin, SuperuserRequiredMixin, generic.Lis
     paginate_by = 50
 
     def get_queryset(self):
-        return Restaurant.objects.all()
+        return Textiles.objects.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -177,7 +177,7 @@ class RestaurantListView(LoginRequiredMixin, SuperuserRequiredMixin, generic.Lis
 
 
 class RestaurantDetailView(LoginRequiredMixin, SuperuserRequiredMixin, generic.DetailView):
-    model = Restaurant
+    model = Textiles
     template_name = "main/restaurant_detail.html"
     context_object_name = "restaurant"
 
@@ -188,7 +188,7 @@ class RestaurantDetailView(LoginRequiredMixin, SuperuserRequiredMixin, generic.D
 
 
 class RestaurantUpdateView(LoginRequiredMixin, SuperuserRequiredMixin, UpdateView):
-    model = Restaurant
+    model = Textiles
     template_name = "main/restaurant_update.html"
     form_class = RestaurantEditForm
 
@@ -202,7 +202,7 @@ class RestaurantUpdateView(LoginRequiredMixin, SuperuserRequiredMixin, UpdateVie
 
 
 class RestaurantCreateView(LoginRequiredMixin, SuperuserRequiredMixin, generic.CreateView):
-    model = Restaurant
+    model = Textiles
     template_name = "main/restaurant_create.html"
     form_class = RestaurantCreateForm
 
@@ -218,7 +218,7 @@ class CategoryListView(RestaurantRequiredMixin, generic.ListView):
     paginate_by = 50
 
     def get_queryset(self):
-        restaurant = Restaurant.objects.get(user=self.request.user)
+        restaurant = Textiles.objects.get(user=self.request.user)
         return Category.objects.filter(restaurant=restaurant)
 
     def get_context_data(self, **kwargs):
@@ -232,7 +232,7 @@ class CategoryDetailView(RestaurantRequiredMixin, generic.DetailView):
     paginate_by = 50
 
     def get_queryset(self):
-        restaurant = Restaurant.objects.get(user=self.request.user)
+        restaurant = Textiles.objects.get(user=self.request.user)
         return Category.objects.filter(restaurant=restaurant)
 
     def get_context_data(self, **kwargs):
@@ -249,7 +249,7 @@ class CategoryCreateView(RestaurantRequiredMixin, generic.CreateView):
 
     def form_valid(self, form):
         data = form.save(commit=False)
-        data.restaurant = Restaurant.objects.get(user=self.request.user)
+        data.restaurant = Textiles.objects.get(user=self.request.user)
         data.save()
         return super().form_valid(form)
 
@@ -287,7 +287,7 @@ class SubcategoryListView(RestaurantRequiredMixin, generic.ListView):
     paginate_by = 50
 
     def get_queryset(self):
-        restaurant = Restaurant.objects.get(user=self.request.user)
+        restaurant = Textiles.objects.get(user=self.request.user)
         return Subcategory.objects.filter(category__restaurant=restaurant)
 
     def get_context_data(self, **kwargs):
@@ -348,7 +348,7 @@ class ProductListView(RestaurantRequiredMixin, generic.ListView):
     paginate_by = 50
 
     def get_queryset(self):
-        restaurant = Restaurant.objects.get(user=self.request.user)
+        restaurant = Textiles.objects.get(user=self.request.user)
         return Product.objects.filter(subcategory__category__restaurant=restaurant)
 
     def get_context_data(self, **kwargs):
@@ -362,7 +362,7 @@ class ProductDetailView(RestaurantRequiredMixin, generic.DetailView):
     paginate_by = 50
 
     def get_queryset(self):
-        restaurant = Restaurant.objects.get(user=self.request.user)
+        restaurant = Textiles.objects.get(user=self.request.user)
         return Product.objects.filter(subcategory__category__restaurant=restaurant)
 
     def get_context_data(self, **kwargs):
@@ -462,7 +462,7 @@ class MinusCartView(View):
 class HowItWorksView(generic.DetailView):
     template_name = "web/howitworks.html"
     context_object_name = "restaurant"
-    model = Restaurant
+    model = Textiles
 
 
 class NotificationListView(RestaurantRequiredMixin, generic.ListView):
@@ -471,7 +471,7 @@ class NotificationListView(RestaurantRequiredMixin, generic.ListView):
     paginate_by = 50
 
     def get_queryset(self):
-        restaurant = Restaurant.objects.get(user=self.request.user)
+        restaurant = Textiles.objects.get(user=self.request.user)
         return Notification.objects.filter(restaurant=restaurant)
 
     def get_context_data(self, **kwargs):
@@ -485,7 +485,7 @@ class NotificationDetailView(RestaurantRequiredMixin, generic.DetailView):
     paginate_by = 50
 
     def get_queryset(self):
-        restaurant = Restaurant.objects.get(user=self.request.user)
+        restaurant = Textiles.objects.get(user=self.request.user)
         return Notification.objects.filter(restaurant=restaurant)
 
     def get_context_data(self, **kwargs):
@@ -502,7 +502,7 @@ class NotificationCreateView(RestaurantRequiredMixin, generic.CreateView):
 
     def form_valid(self, form):
         data = form.save(commit=False)
-        data.restaurant = Restaurant.objects.get(user=self.request.user)
+        data.restaurant = Textiles.objects.get(user=self.request.user)
         data.save()
         return super().form_valid(form)
 
@@ -519,7 +519,7 @@ class NotificationUpdateView(RestaurantRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         data = form.save(commit=False)
-        data.restaurant = Restaurant.objects.get(user=self.request.user)
+        data.restaurant = Textiles.objects.get(user=self.request.user)
         data.save()
         return super().form_valid(form)
 
@@ -569,3 +569,4 @@ class OptionCreateView(RestaurantRequiredMixin, generic.CreateView):
         data.product = product
         data.save()
         return super().form_valid(form)
+

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 
-from .models import Restaurant
+from .models import Textiles
 from .models import Product, Category, Subcategory
 
 class RestaurantCreateForm(forms.ModelForm):
@@ -9,7 +9,7 @@ class RestaurantCreateForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput(), max_length=200, label="Password")
 
     class Meta:
-        model = Restaurant
+        model = Textiles
         fields = (
             "name",
             "logo",
@@ -41,7 +41,7 @@ class RestaurantCreateForm(forms.ModelForm):
 
 class RestaurantEditForm(forms.ModelForm):
     class Meta:
-        model = Restaurant
+        model = Textiles
         fields = (
             "name",
             "logo",

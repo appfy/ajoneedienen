@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.shortcuts import redirect
 
-from .models import Restaurant
+from .models import Textiles
 
 
 class SuperuserRequiredMixin(UserPassesTestMixin):
@@ -18,9 +18,9 @@ class RestaurantRequiredMixin(LoginRequiredMixin):
             return redirect("auth_login")
         # Get the restaurant associated with the user
         try:
-            restaurant = Restaurant.objects.get(user=request.user)
+            restaurant = Textiles.objects.get(user=request.user)
             return super().dispatch(request, *args, **kwargs)
-        except Restaurant.DoesNotExist:
+        except Textiles.DoesNotExist:
             print("restaurant not found")
             return redirect("main:auto_restaurant")
 

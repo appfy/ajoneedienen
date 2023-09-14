@@ -14,7 +14,7 @@ from .models import Notification
 from .models import Option
 from .models import Product
 from .models import ProductAd
-from .models import Restaurant
+from .models import Textiles
 from .models import State
 from .models import Subcategory
 
@@ -32,13 +32,17 @@ class DistrictAdmin(ImportExportActionModelAdmin):
     pass
 
 
-@admin.register(Restaurant)
-class RestaurantAdmin(ImportExportActionModelAdmin):
+@admin.register(Textiles)
+class TextilesAdmin(ImportExportActionModelAdmin):
     list_display = ("name", "user", "phone")
     list_filter = ("name", "user")
     autocomplete_fields = ("user",)
     search_fields = ("name", "user__username")
     readonly_fields = ("created_by",)
+
+    def add_view(self, request, form_url='', extra_context=None):
+        self.add_title = "Add Textiles"  # Set the custom heading here
+        return super().add_view(request, form_url, extra_context)
 
 
 @admin.register(DefaultCategory)

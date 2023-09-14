@@ -8,19 +8,19 @@ from main.models import CartItem
 from main.models import CatalogueAd
 from main.models import Category
 from main.models import Notification
-from main.models import Restaurant
+from main.models import Textiles
 from main.models import ProductAd
 
 
 class IndexView(ListView):
-    model = Restaurant
+    model = Textiles
     template_name = "web/index.html"
     context_object_name = "restaurants"
     paginate_by = 50
 
 
 class RestaurantCatalogueView(DetailView):
-    model = Restaurant
+    model = Textiles
     template_name = "web/catalogue.html"
     context_object_name = "restaurant"
 
@@ -58,7 +58,7 @@ class CategoryView(DetailView):
 
 
 class CheckoutView(DetailView):
-    model = Restaurant
+    model = Textiles
     template_name = "web/checkout.html"
     context_object_name = "restaurant"
 

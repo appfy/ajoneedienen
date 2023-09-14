@@ -29,5 +29,5 @@ def main_context(request):
         "logo_url": logo_url,
         "favicon_url": favicon_url,
         "usertype": usertype,
-        "domain": "http://aahaglobal.com",
+        "domain": "http://aahaaglobal.com",
     }

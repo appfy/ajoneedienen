@@ -32,7 +32,7 @@ class District(BaseModel):
         return f"{self.state} - {self.name}"
 
 
-class Restaurant(BaseModel):
+class Textiles(BaseModel):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, limit_choices_to={"is_staff": True}, blank=True, null=True
     )
@@ -52,7 +52,7 @@ class Restaurant(BaseModel):
 
     class Meta:
         ordering = ("name",)
-        verbose_name_plural = "textiles"
+        verbose_name_plural = "Textiles"
 
     def get_absolute_url(self):
         return reverse("main:restaurant_detail", kwargs={"pk": self.pk})
@@ -65,6 +65,8 @@ class Restaurant(BaseModel):
 
     def get_populars(self):
         return Product.objects.filter(subcategory__category__restaurant=self, is_popular=True)
+    
+   
 
     def __str__(self):
         return self.name
@@ -84,7 +86,7 @@ class DefaultCategory(BaseModel):
 
 
 class Category(BaseModel):
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE , verbose_name="Textiles")
+    restaurant = models.ForeignKey(Textiles, on_delete=models.CASCADE , verbose_name="Textiles")
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='category_images/')
     description = models.TextField(blank=True)
@@ -186,7 +188,7 @@ class Option(BaseModel):
 
 
 class Banner(models.Model):
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE , verbose_name="Textiles")
+    restaurant = models.ForeignKey(Textiles, on_delete=models.CASCADE , verbose_name="Textiles")
     image = models.ImageField(upload_to='banners/')
 
     def __str__(self):
@@ -196,7 +198,7 @@ class Banner(models.Model):
 class CatalogueAd(models.Model):
     image = models.ImageField(upload_to='catalogue/ads/')
     display_upto = models.DateField()
-    display_in = models.ManyToManyField(Restaurant, blank=True)
+    display_in = models.ManyToManyField(Textiles, blank=True)
 
     def __str__(self):
         return f"Advertisement: {self.image.url}"
@@ -207,14 +209,14 @@ class CatalogueAd(models.Model):
 class ProductAd(models.Model):
     image = models.ImageField(upload_to='product/ads/')
     display_upto = models.DateField()
-    display_in = models.ManyToManyField(Restaurant, blank=True)
+    display_in = models.ManyToManyField(Textiles, blank=True)
 
     def __str__(self):
         return f"Advertisement: {self.image.url}"
 
 
 class CartItem(models.Model):
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    restaurant = models.ForeignKey(Textiles, on_delete=models.CASCADE)
     session_key = models.CharField(max_length=200)
     product = models.ForeignKey(Option, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
@@ -227,7 +229,7 @@ class CartItem(models.Model):
 
 
 class Notification(models.Model):
-    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE , verbose_name="Textiles")
+    restaurant = models.ForeignKey(Textiles, on_delete=models.CASCADE , verbose_name="Textiles")
     notification = models.TextField()
 
     def get_absolute_url(self):
