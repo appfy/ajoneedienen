@@ -63,5 +63,8 @@
         });
         return false;
     });
+    $(window).on('load', function () {
+        $('.modal.fade').appendTo('body');
+    })
     
 })(jQuery);
