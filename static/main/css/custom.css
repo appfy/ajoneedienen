@@ -247,3 +247,12 @@ canvas {
 .brdr {
     border-radius: 6px;
 }
+#DataTables_Table_0_wrapper button{
+    z-index: 0;
+    margin-top: 10px;
+}
+@media (max-width: 767.98px) { 
+    #DataTables_Table_0_wrapper button{
+        margin-top: 10px;
+    }
+ }
