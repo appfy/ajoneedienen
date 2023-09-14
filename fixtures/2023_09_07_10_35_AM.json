@@ -3413,8 +3413,8 @@
         "model": "sites.site",
         "pk": 1,
         "fields": {
-            "domain": "aahaaglobal.com",
-            "name": "aahaaglobal.com"
+            "domain": "aahaglobal.com",
+            "name": "aahaglobal.com"
         }
     },
     {

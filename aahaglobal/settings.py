@@ -43,7 +43,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "aahaaglobal.urls"
+ROOT_URLCONF = "aahaglobal.urls"
 
 TEMPLATES = [
     {
@@ -62,7 +62,7 @@ TEMPLATES = [
     }
 ]
 
-WSGI_APPLICATION = "aahaaglobal.wsgi.application"
+WSGI_APPLICATION = "aahaglobal.wsgi.application"
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
 SILENCED_SYSTEM_CHECKS = ["security.W019"]
