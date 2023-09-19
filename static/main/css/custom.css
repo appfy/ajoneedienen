@@ -240,7 +240,7 @@ canvas {
 }
 
 .nav-pills .nav-link.active {
-    background: linear-gradient(45deg, #ED2775 0%, #FF7448 100%);
+    background: linear-gradient(135deg,  #ba9dc9 0%, #5a37e5 100%);
     color: #fff;
 }
 
