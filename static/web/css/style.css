@@ -394,33 +394,33 @@ a {
   border-color: #3b5998;
   color: #fff !important
 }
-
+/* ribin custom */
 .bg-primary {
-  background: #d92662;
-  background: -moz-linear-gradient(45deg, #d92662 0%, #e23744 100%);
-  background: -webkit-linear-gradient(45deg, #d92662 0%, #e23744 100%);
-  background: linear-gradient(45deg, #d92662 0%, #e23744 100%);
+  background: #5846b9;
+  background: -moz-linear-gradient(45deg, #5846b9 0%, #5F0D89 100%);
+  background: -webkit-linear-gradient(45deg, #5846b9 0%, #5F0D89 100%);
+  background: linear-gradient(45deg, #5846b9 0%, #5F0D89 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d92662', endColorstr='#e23744', GradientType=1)
 }
 
 .btn-primary {
-  background: #d92662;
-  background: -moz-linear-gradient(45deg, #d92662 0%, #e23744 100%);
-  background: -webkit-linear-gradient(45deg, #d92662 0%, #e23744 100%);
-  background: linear-gradient(45deg, #d92662 0%, #e23744 100%);
+  background: #5846b9;
+  background: -moz-linear-gradient(45deg, #5846b9 0%, #5F0D89 100%);
+  background: -webkit-linear-gradient(45deg, #5846b9 0%, #5F0D89 100%);
+  background: linear-gradient(45deg, #5846b9 0%, #5F0D89 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d92662', endColorstr='#e23744', GradientType=1);
-  border-color: #d92662
+  border-color: #5846b9
 }
 
 .btn-primary:hover {
   background: #d92662;
-  background: -moz-linear-gradient(-45deg, #d92662 0%, #e23744 100%);
-  background: -webkit-linear-gradient(-45deg, #d92662 0%, #e23744 100%);
-  background: linear-gradient(135deg, #d92662 0%, #e23744 100%);
+  background: -moz-linear-gradient(-45deg,  #4f2066 0%, #5a37e5 100%);
+  background: -webkit-linear-gradient(-45deg,  #4f2066 0%, #5a37e5 100%);
+  background: linear-gradient(135deg,  #4f2066 0%, #5a37e5 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d92662', endColorstr='#e23744', GradientType=1);
-  border-color: #e23744
+  border-color: #4f2066
 }
-
+/*  */
 .btn-outline-primary {
   color: #e23744;
   border-color: #e23744
@@ -440,9 +440,9 @@ a {
   color: #e23744 !important;
   text-decoration: none !important
 }
-
+/* ribin custom */
 a {
-  color: #e23744;
+  color: #080034;
   text-decoration: none !important
 }
 
@@ -453,10 +453,10 @@ p {
 
 .btn-link {
   font-weight: 400;
-  color: #e23744;
+  color: #0e0350;
   text-decoration: none !important
 }
-
+/*  */
 .slick-dots {
   bottom: 20px !important
 }
@@ -684,18 +684,18 @@ p {
   border-radius: 0;
   height: 26px;
 }
-
+/* ribin custom */
 .count-number-input {
   width: 33px;
   text-align: center;
-  background: #e23744;
+  background: linear-gradient(45deg, #5846b9 0%, #7726a1 100%);
   border: none;
   color: #fff;
   height: 26px;
   border-radius: 0;
   vertical-align: bottom;
 }
-
+/*  */
 .non_veg,
 .veg {
   width: 20px;
@@ -966,11 +966,11 @@ p {
   font-size: 10px !important;
   font-weight: 400 !important
 }
-
+/* ribin custom */
 .offer-section {
-  background-color: #000
+  background-color: #080034;
 }
-
+/*  */
 .mt-n3 {
   margin-top: -1rem
 }
@@ -1301,7 +1301,7 @@ footer .text-muted {
 
 .list-card-image img {
   max-height: 180px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .sicon {
@@ -1352,7 +1352,7 @@ footer .text-muted {
   white-space: nowrap;
   box-sizing: border-box;
   padding: 6px 12px;
-  background: #e2374445;
+  background: #2b40c745;
   border-radius: 10px;
 }
 .marquee-text {

@@ -556,7 +556,7 @@ class OptionDeleteView(RestaurantRequiredMixin, DeleteView):
 class OptionCreateView(RestaurantRequiredMixin, generic.CreateView):
     model = Option
     template_name = "main/option_create.html"
-    fields = ("name", "price")
+    fields = ("name", "price","org_price",)
 
     def get_success_url(self):
         product_pk = self.kwargs.get("product_pk")

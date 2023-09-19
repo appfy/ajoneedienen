@@ -2,15 +2,6 @@
 <div class="item col-md-3 pb-3 {{product.subcategory.pk}}">
     <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
         <div class="list-card-image">
-            {% comment %} <div class="star position-absolute">
-                {% if product.display_foodtype %}
-                {% if product.is_vegetarian %}
-                <span class="badge text-bg-success">Veg</span>
-                {% else %}
-                <span class="badge text-bg-danger">Non-veg</span>
-                {% endif %}
-                {% endif %}
-            </div> {% endcomment %}
 
             <a data-bs-toggle="modal" data-bs-target="#{{product.pk}}" href="javascript:void(0);">
                 <img alt="#" src="{{product.image.url}}" class="img-fluid item-img w-100" style="height:300px">
@@ -22,10 +13,10 @@
                     <a href="{{product.get_web_url}}" class="text-black">{{product.name}}</a>
                 </h6>
                 {% comment %} <span class="">&#8377; {{product.price}}</span> {% endcomment %}
-                <p class="text-gray mb-3">{{product.description|truncatechars:"165"}}</p>
-                {% comment %} <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{product.pk}}">
+                <p class="text-gray mb-3">{{product.description|truncatechars:"100"}}</p>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{product.pk}}">
                     Add to List
-                </button> {% endcomment %}
+                </button>
             </div>
         </div>
     </div>
@@ -33,6 +24,8 @@
 <!-- Button trigger modal -->
 
 <!-- Modal -->
+
+
 <div class="modal fade" id="{{product.pk}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="{{product.pk}}Label" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -43,43 +36,68 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-sm-6 mx-auto">
-                       
+                    <div class="col-sm-6">
+                        <div class="star position-absolute">
+                            {% if product.display_foodtype %}
+                            {% if product.is_vegetarian %}
+                            <span class="badge text-bg-success">Veg</span>
+                            {% else %}
+                            <span class="badge text-bg-danger">Non-veg</span>
+                            {% endif %}
+                            {% endif %}
+                        </div>
                         <a href="{{product.get_web_url}}" class="d-inline-block">
                             <img alt="#" src="{{product.image.url}}" class="img-fluid item-img w-100 brdr shadow">
                         </a>
                     </div>
-                    
+                    <div class="col-md-6">
+                        <div class="position-relative">
+                            <div class="list-card-body pt-2">
+                                <h6 class="mb-1">
+                                    <a href="{{product.get_web_url}}" data-option-pk="{{ option.pk }}" class="text-black">{{product.name}}</a>
+                                </h6>
+
+                                <div class="row mt-2">
+                                    <div class="col-md-12 px-0">
+                                        {% for option in product.get_options %}
+                                        <div class="d-flex gap-2 p-3 border-bottom gold-members flex-wrap">
+
+                                            <div>
+                                                <h6 class="mb-1">{{ option.name }}</h6>
+                                                <p class="text-muted mb-0">&#8377;{{ option.price }} <del class="ps-lg-3">{{ option.org_price }}</del></p>
+
+                                            </div>
+
+                                            <span class="ms-auto">
+                                                <span class="count-number float-end">
+                                                    <button type="button" class="btn-sm left btn_decrease btn btn-outline-secondary" data-option="{{ option.pk }}">
+                                                        <i class="feather-minus"></i>
+                                                    </button>
+
+                                                    <input class="count-number-input" type="text" value="{% get_qty request.session.session_key option restaurant %}">
+                                                    
+                                                    <button type="button" class="btn-sm right btn_increase btn btn-outline-secondary" data-option="{{ option.pk }}">
+                                                        <i class="feather-plus"></i>
+                                                    </button>
+                                                </span>
+
+                                            </span>
+                                            
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-12 mt-3">
                         <div class="position-relative">
                             <div class="list-card-body">
                                 <h6 class="mb-1">Description: </h6>
                                 <p class="text-gray mb-3">{{product.description|linebreaksbr}}</p>
                             </div>
-                            {% if product.get_options %}
-                            <div class="list-card-body">
-                                <h6 class="mb-1">Options: </h6>
-                                 
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Option Name</th>
-                                            <th scope="col">Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for option in product.get_options %}
-                                        <tr>
-                                            <th scope="row">{{ forloop.counter }}</th>
-                                            <td>{{ option.name }}</td>
-                                            <td>&#8377;{{ option.price }}</td>
-                                        </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
-                            {% endif %}
+                            
                         </div>
                     </div>
                     {% if product_ads %}
@@ -99,4 +117,3 @@
         </div>
     </div>
 </div>
-

@@ -82,7 +82,7 @@ class OptionAdmin(ImportExportActionModelAdmin):
 class OptionInline(admin.TabularInline):
     model = Option
     extra = 1
-    fields = ("name", "price")
+    fields = ("name", "price", "org_price")
 
 
 @admin.register(Product)
