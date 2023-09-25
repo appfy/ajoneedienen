@@ -11,12 +11,12 @@
     </nav>
 </div>
 
-<div class="d-md-flex gap-2 flex-wrap">
+<div class="d-flex gap-2 flex-wrap">
     {% for category in categories %}
     <div class="p-1">
         <div class="card">
             <a href="{{category.get_absolute_url}}" class="card-body d-inline-block">
-                <img src="{{category.image.url}}" alt="" class="card-image mx-auto " style="height: 80px;">
+                <img src="{{category.image.url}}" alt="" class="card-image" style="height: 80px;">
                 <h5 class="mb-0 mt-3 fw-bold text-center text-black">{{category.name}}</h5>
             </a>
         </div>

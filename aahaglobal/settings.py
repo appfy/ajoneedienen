@@ -156,14 +156,17 @@ LOGIN_URL = "/accounts/login/"
 LOGOUT_URL = "/accounts/logout/"
 LOGIN_REDIRECT_URL = "/home"
 
-EMAIL_BACKEND = config('EMAIL_BACKEND')
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_BACKEND = config('EMAIL_BACKEND', default=None)
+EMAIL_HOST = config('EMAIL_HOST', default=None)
+EMAIL_PORT = config('EMAIL_PORT', default=None)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default=None)
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default=None)
 
-#This did the trick
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default=EMAIL_HOST)
+DEFAULT_BCC_EMAIL = config('DEFAULT_BCC_EMAIL', default=EMAIL_HOST)
+DEFAULT_REPLY_TO_EMAIL = config('DEFAULT_REPLY_TO_EMAIL', default=EMAIL_HOST)
+SERVER_EMAIL = config('SERVER_EMAIL', default=EMAIL_HOST)
+ADMIN_EMAIL = config('ADMIN_EMAIL', default=EMAIL_HOST)
 
 
 APP_ORDER = OrderedDict([("main", ["DefaultCategory", "Restaurant", "Category", "Subcategory", "Product", "Option"])])

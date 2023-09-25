@@ -1,8 +1,7 @@
 {% load tags %}
-<div class="item col-md-3 pb-3 {{product.subcategory.pk}}">
+<div class="item col-6 col-md-3 pb-3 {{product.subcategory.pk}}">
     <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
         <div class="list-card-image">
-
             <a data-bs-toggle="modal" data-bs-target="#{{product.pk}}" href="javascript:void(0);">
                 <img alt="#" src="{{product.image.url}}" class="img-fluid item-img w-100" style="height:300px">
             </a>
@@ -13,8 +12,8 @@
                     <a href="{{product.get_web_url}}" class="text-black">{{product.name}}</a>
                 </h6>
                 {% comment %} <span class="">&#8377; {{product.price}}</span> {% endcomment %}
-                <p class="text-gray mb-3">{{product.description|truncatechars:"100"}}</p>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#{{product.pk}}">
+                <p class="text-gray mb-3">{{product.description|truncatechars:"50"}}</p>
+                <button type="button" class="btn btn-primary text-black mx-auto" data-bs-toggle="modal" data-bs-target="#{{product.pk}}">
                     Add to List
                 </button>
             </div>
@@ -64,7 +63,10 @@
 
                                             <div>
                                                 <h6 class="mb-1">{{ option.name }}</h6>
-                                                <p class="text-muted mb-0">&#8377;{{ option.price }} <del class="ps-lg-3">{{ option.org_price }}</del></p>
+                                                <p class="text-muted mb-0">
+                                                    <strong>&#8377;{{ option.price }} </strong>
+                                                    <del class="ms-1">&#8377;{{ option.org_price }}</del>
+                                                </p>
 
                                             </div>
 

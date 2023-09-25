@@ -374,7 +374,7 @@ class ProductDetailView(RestaurantRequiredMixin, generic.DetailView):
 class ProductCreateView(RestaurantRequiredMixin, generic.CreateView):
     model = Product
     template_name = "main/product_create.html"
-    fields = ("subcategory", "name", "description", "image" , "is_popular")
+    fields = ("subcategory", "name", "description", "image", "is_popular")
     success_url = reverse_lazy("main:index")
 
     def get_form(self, form_class=None):
@@ -556,7 +556,7 @@ class OptionDeleteView(RestaurantRequiredMixin, DeleteView):
 class OptionCreateView(RestaurantRequiredMixin, generic.CreateView):
     model = Option
     template_name = "main/option_create.html"
-    fields = ("name", "price","org_price",)
+    fields = ("name", "price", "org_price")
 
     def get_success_url(self):
         product_pk = self.kwargs.get("product_pk")
@@ -569,4 +569,3 @@ class OptionCreateView(RestaurantRequiredMixin, generic.CreateView):
         data.product = product
         data.save()
         return super().form_valid(form)
-

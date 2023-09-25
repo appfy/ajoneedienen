@@ -13,8 +13,7 @@ def times(number):
 def pop_and_get_app(apps, key, app_label):
     for index, app in enumerate(apps):
         if app[key] == app_label:
-            obj = apps.pop(index)
-            return obj
+            return apps.pop(index)
     return None
 
 

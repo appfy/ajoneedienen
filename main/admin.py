@@ -5,6 +5,7 @@ from import_export.admin import ImportExportActionModelAdmin
 from registration.models import RegistrationProfile
 
 from .models import Banner
+
 # from .models import CartItem
 from .models import CatalogueAd
 from .models import Category

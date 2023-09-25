@@ -46,8 +46,9 @@ class Textiles(BaseModel):
     instagram_url = models.URLField(max_length=200, blank=True, null=True)
     youtube_url = models.URLField(max_length=200, blank=True, null=True)
     twitter_url = models.URLField(max_length=200, blank=True, null=True)
+    location_url = models.URLField(max_length=200, blank=True, null=True)
 
-    feature_image = models.ImageField(upload_to="restaurant/feature_images/",null=True, blank=True)
+    feature_image = models.ImageField(upload_to="restaurant/feature_images/", null=True, blank=True)
     feature_description = models.TextField(blank=True, null=True)
 
     class Meta:
@@ -65,8 +66,6 @@ class Textiles(BaseModel):
 
     def get_populars(self):
         return Product.objects.filter(subcategory__category__restaurant=self, is_popular=True)
-    
-   
 
     def __str__(self):
         return self.name
@@ -86,7 +85,7 @@ class DefaultCategory(BaseModel):
 
 
 class Category(BaseModel):
-    restaurant = models.ForeignKey(Textiles, on_delete=models.CASCADE , verbose_name="Textiles")
+    restaurant = models.ForeignKey(Textiles, on_delete=models.CASCADE, verbose_name="Textiles")
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='category_images/')
     description = models.TextField(blank=True)
@@ -152,8 +151,6 @@ class Product(BaseModel):
     def __str__(self):
         return self.name
 
-
-
     class Meta:
         ordering = ("name",)
         verbose_name_plural = "Products"
@@ -175,8 +172,7 @@ class Option(BaseModel):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    org_price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True,help_text='cut this price')
-
+    org_price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, help_text='cut this price')
 
     def __str__(self):
         return f"{self.product.name} - {self.name}"
@@ -190,7 +186,7 @@ class Option(BaseModel):
 
 
 class Banner(models.Model):
-    restaurant = models.ForeignKey(Textiles, on_delete=models.CASCADE , verbose_name="Textiles")
+    restaurant = models.ForeignKey(Textiles, on_delete=models.CASCADE, verbose_name="Textiles")
     image = models.ImageField(upload_to='banners/')
 
     def __str__(self):
@@ -206,8 +202,6 @@ class CatalogueAd(models.Model):
         return f"Advertisement: {self.image.url}"
 
 
-
-
 class ProductAd(models.Model):
     image = models.ImageField(upload_to='product/ads/')
     display_upto = models.DateField()
@@ -221,7 +215,7 @@ class CartItem(models.Model):
     restaurant = models.ForeignKey(Textiles, on_delete=models.CASCADE)
     session_key = models.CharField(max_length=200)
     product = models.ForeignKey(Option, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
+    quantity = models.PositiveIntegerField(default=0)
 
     def total_price(self):
         return self.product.price * self.quantity
@@ -231,7 +225,7 @@ class CartItem(models.Model):
 
 
 class Notification(models.Model):
-    restaurant = models.ForeignKey(Textiles, on_delete=models.CASCADE , verbose_name="Textiles")
+    restaurant = models.ForeignKey(Textiles, on_delete=models.CASCADE, verbose_name="Textiles")
     notification = models.TextField()
 
     def get_absolute_url(self):
@@ -245,5 +239,3 @@ class Notification(models.Model):
 
     def __str__(self):
         return str(self.notification)
-
-

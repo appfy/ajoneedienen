@@ -28,3 +28,4 @@ class RestaurantRequiredMixin(LoginRequiredMixin):
         if restaurant.is_blocked:
             print("restaurant blocked")
             return redirect("main:restaurant_blocked")
+        return None

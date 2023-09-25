@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from .models import Textiles
 from .models import Product, Category, Subcategory
 
+
 class RestaurantCreateForm(forms.ModelForm):
     username = forms.CharField(max_length=200, label="Username")
     password = forms.CharField(widget=forms.PasswordInput(), max_length=200, label="Password")
@@ -53,8 +54,6 @@ class RestaurantEditForm(forms.ModelForm):
             "youtube_url",
             "twitter_url",
         )
-
-
 
 
 class ProductAdminForm(forms.ModelForm):

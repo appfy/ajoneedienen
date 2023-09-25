@@ -29,9 +29,7 @@ class RestaurantCatalogueView(DetailView):
         context = super().get_context_data(**kwargs)
         context["banners"] = Banner.objects.filter(restaurant=self.get_object())
         context["notifications"] = Notification.objects.filter(restaurant=self.get_object())
-        context["product_ads"] = ProductAd.objects.filter(
-            display_upto__gte=timezone.now(), display_in__in=[restaurant]
-        )
+        context["product_ads"] = ProductAd.objects.filter(display_upto__gte=timezone.now(), display_in__in=[restaurant])
         return context
 
 
@@ -51,9 +49,7 @@ class CategoryView(DetailView):
         context["catalogue_ads"] = CatalogueAd.objects.filter(
             display_upto__gte=timezone.now(), display_in__in=[restaurant]
         )
-        context["product_ads"] = ProductAd.objects.filter(
-            display_upto__gte=timezone.now(), display_in__in=[restaurant]
-        )
+        context["product_ads"] = ProductAd.objects.filter(display_upto__gte=timezone.now(), display_in__in=[restaurant])
         return context
 
 
@@ -72,9 +68,7 @@ class CheckoutView(DetailView):
         context["cart_items"] = cart_items
         context["total_price"] = sum([cart_item.total_price() for cart_item in cart_items])
 
-        context["product_ads"] = ProductAd.objects.filter(
-            display_upto__gte=timezone.now(), display_in__in=[restaurant]
-        )
+        context["product_ads"] = ProductAd.objects.filter(display_upto__gte=timezone.now(), display_in__in=[restaurant])
         return context
 
 
@@ -88,7 +82,11 @@ class CartItemPlusView(View):
         )[0]
         cart_item.quantity += 1
         cart_item.save()
-        response = {"success": True, "quantity": cart_item.quantity, "subtotal": cart_item.total_price()}
+        response = {
+            "success": True,
+            "quantity": cart_item.quantity,
+            "subtotal": cart_item.total_price(),
+        }
         return JsonResponse(response)
 
 

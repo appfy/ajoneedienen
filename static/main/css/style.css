@@ -6030,21 +6030,21 @@ fieldset:disabled .btn {
 /* ribin custom */
 .btn-primary {
   color: #000;
-  background: linear-gradient(45deg, #5846b9 0%, #5F0D89 100%);
-  border-color:#8832b3 ;
+  background: linear-gradient(45deg, #217cc7 0%, #217cc7 100%);
+  border-color:#217cc7 ;
 }
 
 .btn-primary:hover {
   color: #000;
-  background:linear-gradient(45deg, #5F0D89 0%, #5846b9 100%);
-  border-color: #8832b3;
+  background:linear-gradient(45deg, #217cc7 0%, #217cc7 100%);
+  border-color: #217cc7;
 }
 
 .btn-check:focus+.btn-primary,
 .btn-primary:focus {
   color: #000;
-  background-color: #8832b3;
-  border-color: #8832b3;
+  background-color: #217cc7;
+  border-color: #217cc7;
   -webkit-box-shadow: 0 0 0 0.25rem rgba(155, 93, 217, 0.5);
   box-shadow: 0 0 0 0.25rem rgba(155, 93, 217, 0.5);
 }
@@ -16808,8 +16808,8 @@ code {
 }
 /* ribin custom */
 .bg-gradient-primary {
-  background: -webkit-gradient(45deg, #2800ff 0%, #8b5aa5 100%) !important;
-  background: linear-gradient(45deg, #2800ff 0%, #8b5aa5 100%) !important;
+  background: -webkit-gradient(45deg, #217cc7 0%, #217cc7 100%) !important;
+  background: linear-gradient(45deg, #217cc7 0%, #217cc7 100%) !important;
 }
 /*  */
 .bg-gradient-secondary {
@@ -16823,8 +16823,8 @@ code {
 }
 /* ribin custom */
 .bg-gradient-info {
-  background: -webkit-gradient(linear, left top, right top, from(#90caf9), color-stop(99%, #04df70)) !important;
-  background: linear-gradient(to right, #90caf9, #04df70 99%) !important;
+  background: -webkit-gradient(linear, left top, right top, from(#217cc7), color-stop(99%, #217cc7)) !important;
+  background: linear-gradient(to right, #217cc7, #217cc7 99%) !important;
 }
 /*  */
 .bg-gradient-warning {

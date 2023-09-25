@@ -8,13 +8,17 @@
 {% block content %}
 <div class="osahan-home-page">
 
-    <div class="bg-primary p-3 d-none">
+    <div class="bg-primary p-2 d-none">
+    </div>
+
+    <div class="bg-white p-3 d-none border-bottom border-primary">
         <div class="text-white">
-            <div class="title d-flex align-items-center">
-                <div class="box">
-                    <img class="img-fluid" src="{% static 'main/images/logo_mini.svg' %}" style="height: 15px;">
-                </div>
+            <div class="title text-black  d-flex justify-content-between align-items-center">
                 <h4 class="fw-bold m-0">{{restaurant}}</h4>
+                <div class="d-flex align-items-center">
+                    <p class="h4 m-0 border-primary header-call pe-2 me-2"><i class="feather-phone-call"></i></p>               
+                    <p class="h4 m-0"><i class="feather-shopping-cart"></i></p>
+                </div>
             </div>
         </div>
         <!-- <div class="input-group bg-white rounded shadow-sm mt-3">
@@ -77,24 +81,33 @@
         {% endif %}
 
         <div class="socials text-center my-4">
-            <div class="d-flex align-items-center justify-content-center">
+            <div class="d-flex flex-column align-items-center justify-content-center">
                 {% if restaurant.facebook_url %}
-                <a class="shadow sicon me-1" title="Facebook" target="_blank" href="{{restaurant.facebook_url}}">
+                <a class="shadow sicon" title="Facebook" target="_blank" href="{{restaurant.facebook_url}}">
                     <img src="{% static 'web/img/facebook.png' %}"></a>
                 {% endif %}
                 {% if restaurant.instagram_url %}
-                <a class="shadow sicon me-1" title="Instagram" target="_blank" href="{{restaurant.instagram_url}}">
+                <a class="shadow sicon" title="Instagram" target="_blank" href="{{restaurant.instagram_url}}">
                     <img src="{% static 'web/img/instagram.png' %}"></a>
                 {% endif %}
                 {% if restaurant.youtube_url %}
-                <a class="shadow sicon me-1" title="Youtube" target="_blank" href="{{restaurant.youtube_url}}">
+                <a class="shadow sicon" title="Youtube" target="_blank" href="{{restaurant.youtube_url}}">
                     <img src="{% static 'web/img/youtube.png' %}"></a>
                 {% endif %}
                 {% if restaurant.twitter_url %}
-                <a class="shadow sicon me-1" title="Twitter" target="_blank" href="{{restaurant.twitter_url}}">
+                <a class="shadow sicon" title="Twitter" target="_blank" href="{{restaurant.twitter_url}}">
                     <img src="{% static 'web/img/twitter.png' %}"></a>
                 {% endif %}
-                <a href="javascript:void(0)" class="shadow sicon me-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                {% if restaurant.location_url %}
+                <a class="shadow sicon" title="Twitter" target="_blank" href="{{restaurant.location_url}}">
+                    <img src="{% static 'web/img/location.png' %}"></a>
+                {% endif %}
+                {% if restaurant.phone %}
+                <a class="shadow sicon" title="Twitter" target="_blank" href="tel:{{restaurant.phone|slugify}}">
+                    <img src="{% static 'web/img/phone.png' %}"></a>
+                {% endif %}
+
+                <a href="javascript:void(0)" class="shadow sicon" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <img src="{% static 'web/img/profile.png' %}"></a>
                 </a>
 
